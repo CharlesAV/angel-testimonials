@@ -22,7 +22,7 @@ class AdminTestimonialController extends AdminCrudController {
 		return $columns;
 	}
 
-	public function validate_rules()
+	public function validate_rules($id = null)
 	{
 		return array(
 			'author' => 'required',
