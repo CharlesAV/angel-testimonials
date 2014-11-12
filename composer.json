@@ -9,7 +9,6 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "angel/core": "dev-master",
         "illuminate/support": "4.1.*"
     },
     "autoload": {
