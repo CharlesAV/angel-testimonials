@@ -11,7 +11,7 @@ class AdminTestimonialController extends AdminCrudController {
 	protected $package	= 'testimonials';
 	protected $reorderable = true;
 	
-	public static function columns()
+	protected static function columns()
 	{
 		$columns = array(
 			'author',
