@@ -1,7 +1,7 @@
 <?php namespace Angel\Testimonials;
 
 use Angel\Core\AdminCrudController;
-use App, View;
+use App, View, Config;
 
 class AdminTestimonialController extends AdminCrudController {
 	protected $Model	= 'Testimonial';

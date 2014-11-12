@@ -1,7 +1,23 @@
 <?php namespace Angel\Testimonials;
 
-use App, Config, Angel\Core\LinkableModel;
+use App, Config, Eloquent;
 
+class Testimonial extends Eloquent {
+
+	///////////////////////////////////////////////
+	//               Relationships               //
+	///////////////////////////////////////////////
+	public function changes()
+	{
+		$Change = App::make('Change');
+
+		return $Change::where('fmodel', 'Testimonial')
+				   	       ->where('fid', $this->id)
+				   	       ->with('user')
+				   	       ->orderBy('created_at', 'DESC')
+				   	       ->get();
+	}
+	
 	///////////////////////////////////////////////
 	//               Menu Linkable               //
 	///////////////////////////////////////////////
