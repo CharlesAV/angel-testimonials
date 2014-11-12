@@ -10,6 +10,31 @@ class AdminTestimonialController extends AdminCrudController {
 	protected $singular = 'testimonial';
 	protected $package	= 'testimonials';
 	protected $reorderable = true;
+	
+	public static function columns()
+	{
+		$columns = array(
+			'author',
+			'position',
+			'html'
+		);
+		if (Config::get('core::languages')) $columns[] = 'language_id';
+		return $columns;
+	}
+
+	public function validate_rules()
+	{
+		return array(
+			'author' => 'required',
+			'html' => 'required'
+		);
+	}
+	
+	public function after_save($testimonial, &$changes = array())
+	{
+		$testimonial->plaintext = strip_tags($testimonial->html);
+		$testimonial->save();
+	}
 
 	public function edit($id)
 	{

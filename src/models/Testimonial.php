@@ -2,38 +2,6 @@
 
 use App, Config, Angel\Core\LinkableModel;
 
-class Testimonial extends LinkableModel {
-	public static function columns()
-	{
-		$columns = array(
-			'author',
-			'position',
-			'html'
-		);
-		if (Config::get('core::languages')) $columns[] = 'language_id';
-		return $columns;
-	}
-
-	public function validate_rules()
-	{
-		return array(
-			'author' => 'required',
-			'html' => 'required'
-		);
-	}
-	
-	///////////////////////////////////////////////
-	//                  Events                   //
-	///////////////////////////////////////////////
-	public static function boot()
-	{
-		parent::boot();
-
-		static::saving(function($testimonial) {
-			$testimonial->plaintext = strip_tags($testimonial->html);
-		});
-	}
-	
 	///////////////////////////////////////////////
 	//               Menu Linkable               //
 	///////////////////////////////////////////////
