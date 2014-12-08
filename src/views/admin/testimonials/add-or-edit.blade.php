@@ -12,23 +12,12 @@
 @section('content')
 <h1>{{ ucfirst($action) }} Testimonial</h1>
 @if ($action == 'edit')
-	@if (!$testimonial->deleted_at)
-		{{ Form::open(array('role'=>'form',
-		'url'=>'admin/testimonials/delete/'.$testimonial->id,
-		'class'=>'deleteForm',
-		'style'=>'margin-bottom:15px;',
-		'data-confirm'=>'Delete this testimonial?  This action cannot be undone!')) }}
-		<input type="submit" class="btn btn-sm btn-danger" value="Delete" />
-		{{ Form::close() }}
-	@else
-		{{ Form::open(array('role'=>'form',
-		'url'=>'admin/testimonials/hard-delete/'.$testimonial->id,
-		'class'=>'deleteForm',
-		'data-confirm'=>'Delete this testimonial forever?  This action cannot be undone!')) }}
-		<input type="submit" class="btn btn-sm btn-danger" value="Delete Forever" />
-		{{ Form::close() }}
-		<a href="{{ url('admin/testimonials/restore/'.$testimonial->id) }}" class="btn btn-sm btn-success">Restore</a>
-	@endif
+	{{ Form::open(array('role'=>'form',
+	'url'=>'admin/testimonials/delete/'.$testimonial->id,
+	'class'=>'deleteForm',
+	'data-confirm'=>'Delete this testimonial forever?  This action cannot be undone!')) }}
+	<input type="submit" class="btn btn-sm btn-danger" value="Delete" />
+	{{ Form::close() }}
 @endif
 
 @if ($action == 'edit')
