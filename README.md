@@ -1,6 +1,6 @@
 Angel Testimonials
 ==============
-This is an eCommerce module for the [Angel CMS](https://github.com/CharlesAV/angel).
+This is a module for the [Angel CMS](https://github.com/CharlesAV/angel).
 
 Installation
 ------------
@@ -9,7 +9,7 @@ Add the following requirements to your `composer.json` file:
 "repositories": [
 	{
 		"type": "vcs",
-		"url": "https://github.com/CharlesAV/angel"
+		"url": "https://github.com/CharlesAV/angel-testimonials"
 	}
 ],
 "require": {
